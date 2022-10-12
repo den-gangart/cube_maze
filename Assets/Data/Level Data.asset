@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c5d55513836e6488ceea551ed53843, type: 3}
+  m_Name: Level Data
+  m_EditorClassIdentifier: 
+  player: {fileID: 9122189811343874212, guid: 3d16b198f44c33847be41b6ad62ba936, type: 3}
+  finishZone: {fileID: 5744128997637931233, guid: 0ff0079468b0c904191fa25cfef732c4, type: 3}
+  wall: {fileID: 3303394943136873200, guid: e5387b5270409384db3eeb7c87433046, type: 3}
+  losePoint: {fileID: 4645979883026464806, guid: 6e8c2b94938e91b45b75c661570414b8, type: 3}
