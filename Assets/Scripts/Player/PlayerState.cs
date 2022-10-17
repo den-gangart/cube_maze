@@ -7,8 +7,7 @@ public class PlayerState : MonoBehaviour
 {
     [SerializeField] private GameObject _winParticles;
     [SerializeField] private GameObject _loseParticles;
-    [SerializeField] private Material _defaultMaterial;
-    [SerializeField] private Material _shieldMaterial;
+    [SerializeField] private Shield _shield;
 
     private NavMeshAgent _navMeshAgent;
     private MeshRenderer _meshRenderer;
@@ -42,6 +41,7 @@ public class PlayerState : MonoBehaviour
 
         _navMeshAgent.isStopped = true;
         _meshRenderer.enabled = false;
+        _shield.gameObject.SetActive(false);
         _loseParticles.SetActive(true);
         _isAlive = false;
         EventSystem.Broadcast(ContentEventType.Lose);
@@ -56,22 +56,19 @@ public class PlayerState : MonoBehaviour
     private void OnShieldActivated()
     {
         _canLose = false;
-        SwitchMaterial();
+        if (_shield.isActiveAndEnabled)
+        {
+            _shield.Appear();
+        }
+        
     }
 
     private void OnShieldDeactivated()
     {
         _canLose = true;
-        SwitchMaterial();
-    }
-
-    private void SwitchMaterial()
-    {
-        if(_meshRenderer.enabled == false)
+        if (_shield.isActiveAndEnabled)
         {
-            return;
+            _shield.Disappear();
         }
-
-        _meshRenderer.material = _canLose ? _defaultMaterial : _shieldMaterial;
     }
 }
